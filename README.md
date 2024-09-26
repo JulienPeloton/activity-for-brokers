@@ -8,4 +8,3 @@ Test cases to be used to validate activity models.  Example comet light curves, 
 ## /models
 
 Photometric models designed for active object analysis, especially useful for simple, possibly interactive, tools.
-
