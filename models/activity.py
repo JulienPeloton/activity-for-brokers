@@ -81,4 +81,9 @@ def Hy(H, y, rh, delta, phase):
 
     """
 
-    return H + 5 * np.log10(rh * delta) - (2.5 * y) * np.log10(rh)
+    return (
+        H
+        + 5 * np.log10(rh * delta)
+        - (2.5 * y) * np.log10(rh)
+        - 2.5 * np.log10(schleicher_marcus(phase))
+    )
