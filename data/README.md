@@ -41,7 +41,8 @@ The filenames follow the format: `<objname>_<surveyname>.csv`
 
 The data presented in this repository comes from the following publications:
 
-- Holt et al., 2024 (LOOK)
+- Ye et al., 2019 (ZTF - Gault)
 - Kelley et al., 2021 (ZTF - 46P)
+- Holt et al., 2024 (LOOK)
 - Gillan et al., *in prep* (ATLAS)
 
