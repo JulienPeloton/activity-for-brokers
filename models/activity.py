@@ -161,5 +161,5 @@ def test_Hy(H, y, rh, delta, phase, expected):
         [0, 1, -1, 10, 1, 0, 27.5],
     ),
 )
-def test_Hy(H, a, b, rh, delta, phase, expected):
+def test_Hab(H, a, b, rh, delta, phase, expected):
     assert np.isclose(Hab(H, a, b, rh, delta, phase), expected, atol=0.003)
