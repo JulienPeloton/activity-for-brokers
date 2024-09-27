@@ -50,7 +50,7 @@ def Hy(H, y, rh, delta, phase):
 
     .. math::
 
-        m = H + (5 - 2.5 y) log10(rh) + 5 log10(delta)
+        m = H + (5 - 2.5 y) log10(rh) + 5 log10(\Delta)
 
     An inactive object has :math:`y = 0`.
 
@@ -95,11 +95,11 @@ def Hab(H, a, b, rh, delta, phase):
 
     .. math::
 
-        m = H + (5 + a rh + b) log10(rh) + 5 log10(delta)
+        m = H + (5 + a rh + b) log10(rh) + 5 log10(\Delta)
 
     An inactive object has :math:`a = b = 0`.
 
-    Holt et al. (submitted) proposed a = 1, b = -1 for long-period comets.
+    Holt et al. (submitted) proposed `a = 1, b = -1` for long-period comets.
 
 
     Parameters
@@ -134,6 +134,57 @@ def Hab(H, a, b, rh, delta, phase):
     return Hy(H, y, rh, delta, phase)
 
 
+def HnHy(Hn, alpha, Hc, y, rh, delta, phase):
+    r"""Low-activity active object.
+
+    This model assumes a log-linear nucleus phase darkening.
+
+
+    .. math::
+
+        m_n = H_n + 5 log10(rh \Delta) + \alpha phase
+
+        m_c = Hy(Hc, y, rh, delta, phase)
+
+        m = -2.5 * log10(10**(-0.4 m_n) + 10**(-0.4 m_c))
+
+
+    Parameters
+    ----------
+    Hn : array
+        Absolute magnitude of the nucleus.
+
+    alpha : array
+        Log-linear phase angle slope for the nucleus (mag/deg).
+
+    Hc : array
+        Absolute magnitude of the coma.
+
+    y : array
+        Activity as a power-law function of heliocentric distance.
+
+    rh : array
+        Heliocentric distance in units of au.
+
+    delta : array
+        Observer-target distance in units of au.
+
+    phase : array
+        Sun-target-observer (phase) angle in units of deg.
+
+
+    Returns
+    -------
+    m : array
+        Apparent magnitude.
+
+    """
+
+    m_c = Hy(Hc, y, rh, delta, phase)
+    m_n = Hn + 5 * np.log10(rh * delta) + alpha * phase
+    return -2.5 * np.log10(10 ** (-0.4 * m_c) + 10 ** (-0.4 * m_n))
+
+
 @pytest.mark.parametrize(
     "H,y,rh,delta,phase,expected",
     (
@@ -163,3 +214,18 @@ def test_Hy(H, y, rh, delta, phase, expected):
 )
 def test_Hab(H, a, b, rh, delta, phase, expected):
     assert np.isclose(Hab(H, a, b, rh, delta, phase), expected, atol=0.003)
+
+
+@pytest.mark.parametrize(
+    "Hn,alpha,Hc,rh,delta,phase,expected",
+    (
+        [0, 0, 99, 1, 1, 0, 0],
+        [5, 0, 99, 1, 1, 0, 5],
+        [0, 1, 99, 10, 1, 0, 5],
+        [0, 1, 99, 1, 10, 0, 5],
+        [0, 0.05, 99, 1, 1, 10, 0.5],
+        [0, 0, 0, 1, 1, 0, -2.5 * np.log10(2)],
+    ),
+)
+def test_HnHy(Hn, alpha, Hc, rh, delta, phase, expected):
+    assert np.isclose(HnHy(Hn, alpha, Hc, 0, rh, delta, phase), expected, atol=0.001)
