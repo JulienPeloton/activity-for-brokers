@@ -1,4 +1,4 @@
-# Photometric Data for Cometary Lightcurves
+# Example Cometary Lightcurves 
 
 This repository contains `.csv` files with photometric data for selected cases of interest. 
 
