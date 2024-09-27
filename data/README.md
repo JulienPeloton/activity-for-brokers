@@ -1,6 +1,6 @@
 # Photometric Data for Cometary Lightcurves
 
-This repository contains `.csv` files with photometric data for selected cases of interest. The filenames follow the format: `<objname>_<surveyname>.csv`
+This repository contains `.csv` files with photometric data for selected cases of interest. 
 
 ## Column Headers
 
@@ -18,9 +18,13 @@ Each `.csv` file includes the following columns:
 ## Example Lightcurves
 
 ### Synthetic Data
-*To be determined (TBD).*
+
+- **LPC with y=3**: [`LPC_y3.csv`](./LPC_y3.csv)  
+  _Description_: This dataset is generated using the geometries of comet **C/2021 S3** and the **Hy model**, with added scatter (σ = 0.05).
 
 ### Real Data Lightcurves
+
+The filenames follow the format: `<objname>_<surveyname>.csv`
 
 - **Typical Jupiter-Family Comet (JFC)**: [`19P_ATLAS.csv`](./19P_ATLAS.csv)
 - **Outburst Events**: [`46P_ZTF.csv`](./46P_ZTF.csv)
@@ -37,7 +41,8 @@ Each `.csv` file includes the following columns:
 
 The data presented in this repository comes from the following publications:
 
-- Holt et al., 2024 (LOOK)
+- Ye et al., 2019 (ZTF - Gault)
 - Kelley et al., 2021 (ZTF - 46P)
+- Holt et al., 2024 (LOOK)
 - Gillan et al., *in prep* (ATLAS)
 
