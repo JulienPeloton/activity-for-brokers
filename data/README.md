@@ -22,6 +22,8 @@ Each `.csv` file includes the following columns:
 
 - **LPC with y=3**: [`LPC_y3.csv`](./LPC_y3.csv)  
   _Description_: This dataset is generated using the geometries of comet **C/2021 S3** and the **Hy model**, with added scatter (σ = 0.05).
+- **LPC with a=0.3, b=-1**: [`LPC_0.3a-1b.csv`](./LPC_0.3a-1b.csv)  
+  _Description_: This dataset is generated using the geometries of comet **C/2021 S3** and the **Hab model**, with added scatter (σ = 0.05).
 
 ### Real Data Lightcurves
 
