@@ -8,6 +8,7 @@ To simplify things:
 """
 
 import numpy as np
+import pytest
 
 
 def schleicher_marcus(phase):
@@ -87,3 +88,19 @@ def Hy(H, y, rh, delta, phase):
         - (2.5 * y) * np.log10(rh)
         - 2.5 * np.log10(schleicher_marcus(phase))
     )
+
+
+@pytest.mark.parametrize(
+    "H,y,rh,delta,phase,expected",
+    (
+        [0, 0, 1, 1, 0, 0],
+        [0, 0, 10, 1, 0, 5],
+        [0, 0, 1, 10, 0, 5],
+        [0, 0, 1, 1, 23, -2.5 * np.log10(0.4765)],
+        [10, 0, 1, 1, 0, 10],
+        [0, -1, 1, 1, 0, 0],
+        [0, -1, 10, 1, 0, 7.5],
+    ),
+)
+def test_Hy(H, y, rh, delta, phase, expected):
+    assert np.isclose(Hy(H, y, rh, delta, phase), expected, atol=0.003)
