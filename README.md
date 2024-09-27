@@ -3,7 +3,7 @@ Active object photometric models, tools, and test cases for LSST Data Brokers.
 
 ## /data
 
-Test cases to be used to validate activity models.  Example comet light curves, real or imagined.
+Test cases to be used to validate activity models. Example comet light curves, real or imagined.
 
 ## /models
 
@@ -11,12 +11,13 @@ Photometric models designed for active object analysis, especially useful for si
 
 ## History
 
-This repository was created as part of a project at the 2024 LSST Solar System Science Collaboration Readiness Sprint.
+This repository was created as part of a project at the 2024 LSST Solar System Science Collaboration Readiness Sprint (Oxford, UK).
 
 ## Contributors
 - Fraser Gillan
 - Carrie Holt
 - Mike Kelley
+- Colin Orion Chandler
 
 
 ## References
