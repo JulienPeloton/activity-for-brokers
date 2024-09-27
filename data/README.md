@@ -38,6 +38,9 @@ The filenames follow the format: `<objname>_<surveyname>.csv`
 - **Fading Event**: [`C2021Y1_LOOK.csv`](./C2021Y1_LOOK.csv)
 - **Unique Case (Gault)**: [`Gault_ZTF.csv`](./Gault_ZTF.csv), [`Gault_ZTF_FINK.csv`](./Gault_ZTF_FINK.csv)
 - **Outbursting Active Asteroid**: ['2016UU121_ZTF_FINK.csv'](./2016UU121_ZTF_FINK.csv)
+- **Iconic Active Asteroid**: ['7968_ZTF_FINK.csv'](./7968_ZTF_FINK.csv)
+- **Active Centaur**: ['Chiron_ZTF_FINK.csv'](./Chiron_ZTF_FINK.csv)
+- **Special Active Centaur**: ['Echeclus_ZTF_FINK.csv'](./Echeclus_ZTF_FINK.csv)
 
 ## Data Sources
 
@@ -48,3 +51,4 @@ The data presented in this repository comes from the following publications:
 - Holt et al., 2024 (LOOK)
 - Gillan et al., *in prep* (ATLAS)
 - Chandler et al., 2024a (2016 UU121), 2024b (TailNet0, *in prep*)
+- FINK Broker
