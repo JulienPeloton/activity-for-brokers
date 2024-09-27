@@ -90,6 +90,50 @@ def Hy(H, y, rh, delta, phase):
     )
 
 
+def Hab(H, a, b, rh, delta, phase):
+    """Active object apparent magnitude model of Holt et al. (submitted).
+
+    .. math::
+
+        m = H + (5 + a rh + b) log10(rh) + 5 log10(delta)
+
+    An inactive object has :math:`a = b = 0`.
+
+    Holt et al. (submitted) proposed a = 1, b = -1 for long-period comets.
+
+
+    Parameters
+    ----------
+    H : array
+        Absolute magnitude.
+
+    a : array
+        Activity index linear slope with heliocentric distance (au**-1).
+
+    b : array
+        Activity index y-intercept.
+
+    rh : array
+        Heliocentric distance in units of au.
+
+    delta : array
+        Observer-target distance in units of au.
+
+    phase : array
+        Sun-target-observer (phase) angle in units of deg.
+
+
+    Returns
+    -------
+    m : array
+        Apparent magnitude.
+
+    """
+
+    y = -(a * rh + b)
+    return Hy(H, y, rh, delta, phase)
+
+
 @pytest.mark.parametrize(
     "H,y,rh,delta,phase,expected",
     (
@@ -106,3 +150,16 @@ def Hy(H, y, rh, delta, phase):
 )
 def test_Hy(H, y, rh, delta, phase, expected):
     assert np.isclose(Hy(H, y, rh, delta, phase), expected, atol=0.003)
+
+
+@pytest.mark.parametrize(
+    "H,a,b,rh,delta,phase,expected",
+    (
+        [0, 0, 0, 1, 1, 0, 0],
+        [0, 1, 0, 1, 1, 0, 0],
+        [0, 1, 0, 10, 1, 0, 30],
+        [0, 1, -1, 10, 1, 0, 27.5],
+    ),
+)
+def test_Hy(H, a, b, rh, delta, phase, expected):
+    assert np.isclose(Hab(H, a, b, rh, delta, phase), expected, atol=0.003)
