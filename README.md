@@ -14,8 +14,9 @@ Photometric models designed for active object analysis, especially useful for si
 This repository was created as part of a project at the 2024 LSST Solar System Science Collaboration Readiness Sprint.
 
 ## Contributors
-- Mike Kelley
 - Fraser Gillan
+- Carrie Holt
+- Mike Kelley
 
 
 ## References
