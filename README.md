@@ -15,3 +15,8 @@ This repository was created as part of a project at the 2024 LSST Solar System S
 
 ## Contributors
 - Mike Kelley
+- Fraser Gillan
+
+
+## References
+
