@@ -14,6 +14,7 @@ Each `.csv` file includes the following columns:
 - **mag**: Observed magnitude
 - **mag_err**: Magnitude uncertainty
 - **filter**: Telescope filter used
+- **query_datetime (optional)**: date/time queries (e.g., JPL, FINK) were done
 
 ## Example Lightcurves
 
@@ -27,7 +28,7 @@ Each `.csv` file includes the following columns:
 The filenames follow the format: `<objname>_<surveyname>.csv`
 
 - **Typical Jupiter-Family Comet (JFC)**: [`19P_ATLAS.csv`](./19P_ATLAS.csv)
-- **Outburst Events**: [`46P_ZTF.csv`](./46P_ZTF.csv)
+- **Outburst Events**: [`46P_ZTF.csv`](./46P_ZTF.csv), [`46P_ZTF_FINK.csv`](./46P_ZTF_FINK.csv)
 - **Seasonal Effects**: [`67P_ATLAS.csv`](./67P_ATLAS.csv)
 - **High Signal-to-Noise Ratio (SNR)**: [`104P_ATLAS.csv`](./104P_ATLAS.csv)
 - **Solar Conjunction and Multiple Apparitions**: [`117P_ATLAS.csv`](./117P_ATLAS.csv)
@@ -35,7 +36,8 @@ The filenames follow the format: `<objname>_<surveyname>.csv`
 - **Nucleus Detection**: [`459P_ATLAS.csv`](./459P_ATLAS.csv)
 - **Typical Long-Period Comet (LPC)**: [`C2021S3_LOOK.csv`](./C2021S3_LOOK.csv)
 - **Fading Event**: [`C2021Y1_LOOK.csv`](./C2021Y1_LOOK.csv)
-- **Unique Case (Gault)**: [`Gault_ZTF.csv`](./Gault_ZTF.csv)
+- **Unique Case (Gault)**: [`Gault_ZTF.csv`](./Gault_ZTF.csv), [`Gault_ZTF_FINK.csv`](./Gault_ZTF_FINK.csv)
+- **Outbursting Active Asteroid**: ['2016UU121_ZTF_FINK.csv'](./2016UU121_ZTF_FINK.csv)
 
 ## Data Sources
 
@@ -45,4 +47,4 @@ The data presented in this repository comes from the following publications:
 - Kelley et al., 2021 (ZTF - 46P)
 - Holt et al., 2024 (LOOK)
 - Gillan et al., *in prep* (ATLAS)
-
+- Chandler et al., 2024a (2016 UU121), 2024b (TailNet0, *in prep*)
